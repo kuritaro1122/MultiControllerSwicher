@@ -18,6 +18,7 @@ namespace KuriTaro.MultiController.Sample1 {
                 Destroy(this);
             }
         }
+
     }
 
 #if UNITY_EDITOR
