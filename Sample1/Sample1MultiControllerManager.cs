@@ -8,6 +8,16 @@ using UnityEditor;
 
 namespace KuriTaro.MultiController.Sample1 {
     public class Sample1MultiControllerManager : BaseMultiControllerManager<ControllerType, Sample1BaseController> {
+        private static Sample1MultiControllerManager instance = null;
+        public static Sample1MultiControllerManager Instance => instance;
+        void Awake() {
+            if (instance == null) {
+                instance = this;
+            } else {
+                Debug.Log(this.name + "/" + this.GetType().ToString() + " is already exist.");
+                Destroy(this);
+            }
+        }
     }
 
 #if UNITY_EDITOR
