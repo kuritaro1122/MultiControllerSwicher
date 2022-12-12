@@ -16,7 +16,7 @@ namespace KuriTaro.MultiController {
         public List<T> GetControllers() => this.controllers;
 
         public int GetCurrentControllerIndex() => this.controllerIndex;
-        public Enum GetCurrentControllerType() => (E)Enum.ToObject(typeof(E), GetCurrentControllerIndex());
+        public E GetCurrentControllerType() => (E)Enum.ToObject(typeof(E), GetCurrentControllerIndex());
         public T GetCurrentController() => this.controllers[GetCurrentControllerIndex()];
 
         protected virtual void Start() {
@@ -36,7 +36,7 @@ namespace KuriTaro.MultiController {
                 if (_controller.GetConnected()) {
                     if (_controller.GetInputAny()) {
                         this.controllerIndex = i;
-                        Debug.Log($"changeController: {this.controllerIndex}{_controller}");
+                        //Debug.Log($"changeController: {this.controllerIndex}{_controller}");
                         break;
                     }
                 } else continue;
@@ -48,7 +48,7 @@ namespace KuriTaro.MultiController {
         Type GetControllerType();
         List<T> GetControllers();
         int GetCurrentControllerIndex();
-        Enum GetCurrentControllerType();
+        E GetCurrentControllerType();
         T GetCurrentController();
     }
 

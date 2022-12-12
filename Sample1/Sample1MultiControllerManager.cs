@@ -13,6 +13,7 @@ namespace KuriTaro.MultiController.Sample1 {
         void Awake() {
             if (instance == null) {
                 instance = this;
+                DontDestroyOnLoad(this.gameObject);
             } else {
                 Debug.Log(this.name + "/" + this.GetType().ToString() + " is already exist.");
                 Destroy(this);
